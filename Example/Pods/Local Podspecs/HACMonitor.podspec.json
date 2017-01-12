@@ -1,0 +1,22 @@
+{
+  "name": "HACMonitor",
+  "version": "0.1.0",
+  "summary": "A short description of HACMonitor.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/HACMonitor",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "sicong.qian": "hotacool777@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/HACMonitor.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "HACMonitor/Classes/**/*"
+}

@@ -60,11 +60,11 @@
 		6221548F40471A97BA19B855 /* Pods_HACMonitor_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HACMonitor_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8D14978C69FF53FD0DDE1041 /* Pods-HACMonitor_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HACMonitor_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HACMonitor_Tests/Pods-HACMonitor_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		AE13785B84B1D9C029E2AECB /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		B368078D136C7CC933E53FFB /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		AE13785B84B1D9C029E2AECB /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		B368078D136C7CC933E53FFB /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		BD3A1F1A359837259F254D16 /* Pods-HACMonitor_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HACMonitor_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-HACMonitor_Example/Pods-HACMonitor_Example.release.xcconfig"; sourceTree = "<group>"; };
 		E2303E6F3A9844F20B91F5F2 /* Pods_HACMonitor_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HACMonitor_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F3EC95EEFA218C61D6DD3C45 /* HACMonitor.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = HACMonitor.podspec; path = ../HACMonitor.podspec; sourceTree = "<group>"; };
+		F3EC95EEFA218C61D6DD3C45 /* HACMonitor.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = HACMonitor.podspec; path = ../HACMonitor.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +247,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = sicong.qian;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = 34R23B9JS8;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -350,7 +353,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run \'pod install\' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		B809EFEE511990CD7E7B4112 /* [CP] Check Pods Manifest.lock */ = {
@@ -365,7 +368,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run \'pod install\' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		D02B2227770FFA251EC45FBD /* [CP] Embed Pods Frameworks */ = {
@@ -513,6 +516,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = 34R23B9JS8;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HACMonitor/HACMonitor-Prefix.pch";
 				INFOPLIST_FILE = "HACMonitor/HACMonitor-Info.plist";
@@ -529,6 +534,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = 34R23B9JS8;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HACMonitor/HACMonitor-Prefix.pch";
 				INFOPLIST_FILE = "HACMonitor/HACMonitor-Info.plist";

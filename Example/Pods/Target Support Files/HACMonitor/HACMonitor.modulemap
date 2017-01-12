@@ -1,0 +1,6 @@
+framework module HACMonitor {
+  umbrella header "HACMonitor-umbrella.h"
+
+  export *
+  module * { export * }
+}

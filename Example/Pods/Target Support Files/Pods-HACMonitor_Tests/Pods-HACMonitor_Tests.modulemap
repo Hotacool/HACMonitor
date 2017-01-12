@@ -1,0 +1,6 @@
+framework module Pods_HACMonitor_Tests {
+  umbrella header "Pods-HACMonitor_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
