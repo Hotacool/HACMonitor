@@ -14,24 +14,14 @@
 #import <mach/mach_host.h>
 
 @implementation HACRam {
-    HACRamInfo *ramInfo;
 }
-
-HAC_SINGLETON_IMPLEMENT(HACRam)
 
 + (HACRamInfo *)getRamInfo {
-    if (HACObjectIsNull([self sharedHACRam]->ramInfo)) {
-        HACRamInfo *ramInfo = [[HACRamInfo alloc] init];
-        ramInfo.totalRam = [self getRAMTotal];
-        ramInfo.ramType = [self getRAMType];
-        [self sharedHACRam]->ramInfo = ramInfo;
-    }
-    //update ramInfo usage
-    [self getRAMUsage];
-    return [self sharedHACRam]->ramInfo;
-}
-
-+ (HACRamInfo*)getRAMUsage {
+    // basic information
+    HACRamInfo *usage = [HACRamInfo new];
+    usage.totalRam = [HACRam getRAMTotal];
+    usage.ramType = [HACRam getRAMType];
+    
     mach_port_t             host_port = mach_host_self();
     mach_msg_type_number_t  host_size = HOST_VM_INFO64_COUNT;
     vm_size_t               pageSize;
@@ -47,21 +37,18 @@ HAC_SINGLETON_IMPLEMENT(HACRam)
     // it can misbehaves very badly.
     pageSize = 4096;
     
-    if (host_statistics64(host_port, HOST_VM_INFO64, (host_info64_t)&vm_stat, &host_size) != KERN_SUCCESS)
-    {
+    if (host_statistics64(host_port, HOST_VM_INFO64, (host_info64_t)&vm_stat, &host_size) == KERN_SUCCESS) {
+        usage.usedRam = (vm_stat.active_count + vm_stat.inactive_count + vm_stat.wire_count) * pageSize;
+        usage.activeRam = vm_stat.active_count * pageSize;
+        usage.inactiveRam = vm_stat.inactive_count * pageSize;
+        usage.wiredRam = vm_stat.wire_count * pageSize;
+        usage.freeRam = usage.totalRam - usage.usedRam;
+        usage.pageIns = vm_stat.pageins;
+        usage.pageOuts = vm_stat.pageouts;
+        usage.pageFaults = vm_stat.faults;
+    } else {
         NSLog(@"host_statistics() has failed.");
-        return nil;
     }
-    
-    HACRamInfo *usage = [self sharedHACRam]->ramInfo;
-    usage.usedRam = (vm_stat.active_count + vm_stat.inactive_count + vm_stat.wire_count) * pageSize;
-    usage.activeRam = vm_stat.active_count * pageSize;
-    usage.inactiveRam = vm_stat.inactive_count * pageSize;
-    usage.wiredRam = vm_stat.wire_count * pageSize;
-    usage.freeRam = usage.totalRam - usage.usedRam;
-    usage.pageIns = vm_stat.pageins;
-    usage.pageOuts = vm_stat.pageouts;
-    usage.pageFaults = vm_stat.faults;
     return usage;
 }
 

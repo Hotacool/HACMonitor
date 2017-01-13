@@ -9,22 +9,39 @@
 #import "HACViewController.h"
 #import <HACMonitor/HACpu.h>
 #import <HACMonitor/HACRam.h>
+#import <HACMonitor/HACBattery.h>
+#import <HACMonitor/HACNetwork.h>
 
 @interface HACViewController ()
 
 @end
 
-@implementation HACViewController
+@implementation HACViewController {
+    HACpu *cpu;
+    HACBattery *battery;
+    HACNetwork *network;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    HACpuInfo *cpuInfo = [HACpu getCpuInfo];
+    cpu = [HACpu new];
+    HACpuInfo *cpuInfo = [cpu getCpuInfo];
     NSLog(@"cpuInfo: %@", [cpuInfo description]);
+//
+//    HACRamInfo *ramInfo = [HACRam getRamInfo];
+//    NSLog(@"ramInfo: %@", [ramInfo description]);
+
+    battery = [HACBattery new];
+    HACBatteryInfo *batteryInfo = [battery getBatteryInfo];
+    NSLog(@"batteryInfo: %@", [batteryInfo description]);
+    NSLog(@"battery level: %d", [HACBattery getCurrentBatteryLevel]);
+    [battery startBatteryMonitoring];
     
-    HACRamInfo *ramInfo = [HACRam getRamInfo];
-    NSLog(@"ramInfo: %@", [ramInfo description]);
+    network = [HACNetwork new];
+    [network getNetworkInfo];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(NetworkStatusUpdated) name:kHACNetworkStatusUpdated object:nil];
     
     NSTimer *timer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(doSomething) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
@@ -39,7 +56,7 @@
 - (void)doSomething {
     NSLog(@"getCpuUsageForTaskSelf: %f", [HACpu getCpuUsageForTaskSelf]);
     double __block sum;
-    NSArray *arr = [HACpu getCpuUsageForAllProcessors];
+    NSArray *arr = [cpu getCpuUsageForAllProcessors];
     if (arr.count < 1) {
         return;
     }
@@ -48,9 +65,14 @@
 //        NSLog(@"cup load: %@", [obj description]);
     }];
     NSLog(@"getCpuUsageForAllProcessors: %f", sum);
+//    NSLog(@"used memory: %f", [HACRam getUsedMemory]/1024/1024);
+    NSLog(@"batteryInfo: %@", [[battery getBatteryInfo] description]);
     
-    NSLog(@"ramInfo: %@", [[HACRam getRAMUsage] description]);
-    NSLog(@"used memory: %f", [HACRam getUsedMemory]/1024/1024);
+    NSLog(@"network info: %@", [network getNetworkInfo]);
+}
+
+- (void)NetworkStatusUpdated {
+    NSLog(@"network info: %@", [network getNetworkInfo]);
 }
 
 @end

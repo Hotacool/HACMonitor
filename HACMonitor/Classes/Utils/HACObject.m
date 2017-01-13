@@ -36,7 +36,7 @@
         if (HACObjectIsEmpty(obj)) {
             [dic setObject:@"" forKey:@"unknow"];
         } else {
-            [dic setObject:[self valueForKey:obj] forKey:obj];
+            [dic setObject:[self valueForKey:obj]?:@"" forKey:obj];
         }
     }];
     return [dic description];

@@ -12,18 +12,11 @@
 @interface HACRam : HACObject
 
 /**
- *  获取内存基本信息
+ *  获取内存整体信息
  *
  *  @return ram information
  */
 + (HACRamInfo*)getRamInfo ;
-
-/**
- *  获取内存使用情况
- *
- *  @return ram usage information
- */
-+ (HACRamInfo*)getRAMUsage ;
 
 /**
  *  获取当前App使用内存

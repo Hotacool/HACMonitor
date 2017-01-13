@@ -29,8 +29,6 @@
     processor_set_name_port_t processorSet;
 }
 
-HAC_SINGLETON_IMPLEMENT(HACpu)
-
 - (void)dealloc {
     free(priorCpuTicks);
 }
@@ -68,30 +66,29 @@ HAC_SINGLETON_IMPLEMENT(HACpu)
     }
 }
 
-+ (HACpuInfo *)getCpuInfo {
-    if (HACObjectIsNull([self sharedHACpu]->cpuInfo)) {
+- (HACpuInfo *)getCpuInfo {
+    if (HACObjectIsNull(cpuInfo)) {
         // set device
         HACDeviceData *hardcodeData = [HACDeviceData sharedDeviceData];
         NSString *hwMachine = [AMUtils getSysCtlChrWithSpecifier:"hw.machine"];
         [hardcodeData setHwMachine:hwMachine];
         // get cpu info
-        HACpuInfo *cpuInfo = [[HACpuInfo alloc] init];
-        cpuInfo.cpuName = [self getCPUName];
-        cpuInfo.activeCPUCount = [self getActiveCPUCount];
-        cpuInfo.physicalCPUCount = [self getPhysicalCPUCount];
-        cpuInfo.physicalCPUMaxCount = [self getPhysicalCPUMaxCount];
-        cpuInfo.logicalCPUCount = [self getLogicalCPUCount];
-        cpuInfo.logicalCPUMaxCount = [self getLogicalCPUMaxCount];
-        cpuInfo.cpuFrequency = [self getCPUFrequency];
-        cpuInfo.l1DCache = [self getL1DCache];
-        cpuInfo.l1ICache = [self getL1ICache];
-        cpuInfo.l2Cache = [self getL2Cache];
-        cpuInfo.cpuType = [self getCPUType];
-        cpuInfo.cpuSubtype = [self getCPUSubtype];
-        cpuInfo.endianess = [self getEndianess];
-        [self sharedHACpu]->cpuInfo = cpuInfo;
+        cpuInfo = [[HACpuInfo alloc] init];
+        cpuInfo.cpuName = [HACpu getCPUName];
     }
-    return [self sharedHACpu]->cpuInfo;
+    cpuInfo.activeCPUCount = [HACpu getActiveCPUCount];
+    cpuInfo.physicalCPUCount = [HACpu getPhysicalCPUCount];
+    cpuInfo.physicalCPUMaxCount = [HACpu getPhysicalCPUMaxCount];
+    cpuInfo.logicalCPUCount = [HACpu getLogicalCPUCount];
+    cpuInfo.logicalCPUMaxCount = [HACpu getLogicalCPUMaxCount];
+    cpuInfo.cpuFrequency = [HACpu getCPUFrequency];
+    cpuInfo.l1DCache = [HACpu getL1DCache];
+    cpuInfo.l1ICache = [HACpu getL1ICache];
+    cpuInfo.l2Cache = [HACpu getL2Cache];
+    cpuInfo.cpuType = [HACpu getCPUType];
+    cpuInfo.cpuSubtype = [HACpu getCPUSubtype];
+    cpuInfo.endianess = [HACpu getEndianess];
+    return cpuInfo;
 }
 
 /** 获取应用当前的 CPU */
@@ -156,7 +153,7 @@ HAC_SINGLETON_IMPLEMENT(HACpu)
     return tot_cpu;
 }
 
-+ (NSArray<HACpuLoad*>*)getCpuUsageForAllProcessors {
+- (NSArray<HACpuLoad*>*)getCpuUsageForAllProcessors {
     
     // host_info params
     unsigned int                processorCount;
@@ -178,17 +175,20 @@ HAC_SINGLETON_IMPLEMENT(HACpu)
     unsigned long long          totalallnonice = 0;
     // Return data
     NSMutableArray *loadArr;
-    processor_cpu_load_info_t priorCpuTicks = [self sharedHACpu]->priorCpuTicks;
+    NSUInteger activeCPUCount = [HACpu getActiveCPUCount];
+    loadArr = [NSMutableArray arrayWithCapacity:activeCPUCount];
+    for (NSUInteger i = 0; i < activeCPUCount; ++i) {
+        [loadArr addObject:[[HACpuLoad alloc] init]];
+    }
     
     if (!priorCpuTicks) {
-        goto Error;
+        return loadArr;
     }
     // Read the current ticks
     kStatus = host_processor_info(mach_host_self(), PROCESSOR_CPU_LOAD_INFO, &processorCount,
                                   (processor_info_array_t*)&processorTickInfo, &processorMsgCount);
-    if (kStatus != KERN_SUCCESS)
-    {
-        goto Error;
+    if (kStatus != KERN_SUCCESS) {
+        return loadArr;
     }
     
     loadArr = [NSMutableArray arrayWithCapacity:processorCount];
@@ -274,14 +274,6 @@ HAC_SINGLETON_IMPLEMENT(HACpu)
     
     vm_deallocate(mach_task_self(), (vm_address_t)processorTickInfo, (vm_size_t)(processorMsgCount * sizeof(*processorTickInfo)));
     
-    return loadArr;
-    
-Error:
-    loadArr = [NSMutableArray arrayWithCapacity:[self sharedHACpu]->cpuInfo.activeCPUCount];
-    for (NSUInteger i = 0; i < [self sharedHACpu]->cpuInfo.activeCPUCount; ++i)
-    {
-        [loadArr addObject:[[HACpuLoad alloc] init]];
-    }
     return loadArr;
 }
 

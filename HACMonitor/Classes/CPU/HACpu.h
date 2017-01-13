@@ -17,7 +17,7 @@
  *
  *  @return cpu information
  */
-+ (HACpuInfo*)getCpuInfo ;
+- (HACpuInfo*)getCpuInfo ;
 
 /**
  *  获取APP占用系统CPU百分比
@@ -31,6 +31,6 @@
  *
  *  @return cpu usage
  */
-+ (NSArray<HACpuLoad*>*)getCpuUsageForAllProcessors ;
+- (NSArray<HACpuLoad*>*)getCpuUsageForAllProcessors ;
 
 @end

@@ -22,7 +22,7 @@ pod "HACMonitor"
 
 ## Author
 
-sicong.qian, hotacool777@gmail.com
+sicong.qian, shisosen@163.com
 
 ## License
 

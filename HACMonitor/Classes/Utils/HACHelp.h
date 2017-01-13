@@ -43,4 +43,9 @@ z##_shared_obj_name_ = [[self alloc] init];\
 });                                            \
 return z##_shared_obj_name_;                   \
 }
+
+#define HACBackground(block) dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block)
+
+#define HACMain(block) dispatch_async(dispatch_get_main_queue(),block)
+
 #endif /* HACHelp_h */
