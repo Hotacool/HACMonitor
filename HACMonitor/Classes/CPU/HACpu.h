@@ -25,7 +25,7 @@
  *  @return cpu usage for current task
  */
 + (CGFloat)getCpuUsageForTaskSelf ;
-
+    
 /**
  *  获取系统所有进程使用CPU百分比，即当前系统CPU使用量
  *

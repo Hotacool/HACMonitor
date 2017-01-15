@@ -69,6 +69,8 @@
     NSLog(@"batteryInfo: %@", [[battery getBatteryInfo] description]);
     
     NSLog(@"network info: %@", [network getNetworkInfo]);
+    
+    NSLog(@"network flow: %@", [HACNetwork getNetworkFlow]);
 }
 
 - (void)NetworkStatusUpdated {

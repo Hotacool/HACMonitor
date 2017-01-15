@@ -8,10 +8,13 @@
 
 #import "HACObject.h"
 #import "HACNetworkInfo.h"
+#import "HACNetworkFlow.h"
 
 extern NSString *const kHACNetworkStatusUpdated;
 extern NSString *const kHACNetworkExternalIPAddressUpdated;
 @interface HACNetwork : HACObject
 
 - (HACNetworkInfo*)getNetworkInfo;
+
++ (HACNetworkFlow*)getNetworkFlow ;
 @end
