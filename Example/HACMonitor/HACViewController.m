@@ -11,40 +11,30 @@
 #import <HACMonitor/HACRam.h>
 #import <HACMonitor/HACBattery.h>
 #import <HACMonitor/HACNetwork.h>
+#import <HACMonitor/HACFps.h>
 
 @interface HACViewController ()
-
+@property (nonatomic, strong) UIButton *btn;
 @end
 
 @implementation HACViewController {
     HACpu *cpu;
     HACBattery *battery;
     HACNetwork *network;
+    HACFps *fps;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    cpu = [HACpu new];
-    HACpuInfo *cpuInfo = [cpu getCpuInfo];
-    NSLog(@"cpuInfo: %@", [cpuInfo description]);
-//
-//    HACRamInfo *ramInfo = [HACRam getRamInfo];
-//    NSLog(@"ramInfo: %@", [ramInfo description]);
-
-    battery = [HACBattery new];
-    HACBatteryInfo *batteryInfo = [battery getBatteryInfo];
-    NSLog(@"batteryInfo: %@", [batteryInfo description]);
-    NSLog(@"battery level: %d", [HACBattery getCurrentBatteryLevel]);
-    [battery startBatteryMonitoring];
+    self.btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+    [self.btn setTitle:@"start" forState:UIControlStateNormal];
+    [self.btn setBackgroundColor:[UIColor grayColor]];
+    self.btn.center = self.view.center;
+    [self.view addSubview:self.btn];
+    [self.btn addTarget:self action:@selector(startMonitor) forControlEvents:UIControlEventTouchUpInside];
     
-    network = [HACNetwork new];
-    [network getNetworkInfo];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(NetworkStatusUpdated) name:kHACNetworkStatusUpdated object:nil];
-    
-    NSTimer *timer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(doSomething) userInfo:nil repeats:YES];
-    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
 }
 
 - (void)didReceiveMemoryWarning
@@ -75,6 +65,32 @@
 
 - (void)NetworkStatusUpdated {
     NSLog(@"network info: %@", [network getNetworkInfo]);
+}
+
+- (void)startMonitor {
+//    cpu = [HACpu new];
+//    HACpuInfo *cpuInfo = [cpu getCpuInfo];
+//    NSLog(@"cpuInfo: %@", [cpuInfo description]);
+//    //
+//    //    HACRamInfo *ramInfo = [HACRam getRamInfo];
+//    //    NSLog(@"ramInfo: %@", [ramInfo description]);
+//    
+//    battery = [HACBattery new];
+//    HACBatteryInfo *batteryInfo = [battery getBatteryInfo];
+//    NSLog(@"batteryInfo: %@", [batteryInfo description]);
+//    NSLog(@"battery level: %d", [HACBattery getCurrentBatteryLevel]);
+//    [battery startBatteryMonitoring];
+//    
+//    network = [HACNetwork new];
+//    [network getNetworkInfo];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(NetworkStatusUpdated) name:kHACNetworkStatusUpdated object:nil];
+//    
+//    NSTimer *timer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(doSomething) userInfo:nil repeats:YES];
+//    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    fps = [[HACFps alloc] init];
+    [fps startFpsMonitorBlock:^(CGFloat f) {
+        NSLog(@"fps: %f", f);
+    }];
 }
 
 @end

@@ -176,6 +176,10 @@
 		FA267E921E28CBDE006B2FD1 /* HACNetworkInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FA267E901E28CBDE006B2FD1 /* HACNetworkInfo.m */; };
 		FA267E951E28CC2F006B2FD1 /* HACNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = FA267E931E28CC2F006B2FD1 /* HACNetwork.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FA267E961E28CC2F006B2FD1 /* HACNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = FA267E941E28CC2F006B2FD1 /* HACNetwork.m */; };
+		FA51CBD81E2C68040010E746 /* HACFps.h in Headers */ = {isa = PBXBuildFile; fileRef = FA51CBD61E2C68040010E746 /* HACFps.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FA51CBD91E2C68040010E746 /* HACFps.m in Sources */ = {isa = PBXBuildFile; fileRef = FA51CBD71E2C68040010E746 /* HACFps.m */; };
+		FA51CBDC1E2C6DC20010E746 /* HACWeakObject.h in Headers */ = {isa = PBXBuildFile; fileRef = FA51CBDA1E2C6DC20010E746 /* HACWeakObject.h */; };
+		FA51CBDD1E2C6DC20010E746 /* HACWeakObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FA51CBDB1E2C6DC20010E746 /* HACWeakObject.m */; };
 		FC223395BCEE46EB920CECD38AFD4402 /* EXPMatchers+beInTheRangeOf.h in Headers */ = {isa = PBXBuildFile; fileRef = 222B35F590250B97F30D1C37C402B693 /* EXPMatchers+beInTheRangeOf.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FC6474103AA989EBD5368772037BE0BB /* EXPMatchers+beSupersetOf.h in Headers */ = {isa = PBXBuildFile; fileRef = 9ABA02BD58E16D9841A495FD86DF6334 /* EXPMatchers+beSupersetOf.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FCDA06700D1989687F2471414453A57A /* SPTSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8175700E46E467915FC3D84336F6A3 /* SPTSpec.m */; };
@@ -446,6 +450,10 @@
 		FA267E901E28CBDE006B2FD1 /* HACNetworkInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACNetworkInfo.m; sourceTree = "<group>"; };
 		FA267E931E28CC2F006B2FD1 /* HACNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HACNetwork.h; sourceTree = "<group>"; };
 		FA267E941E28CC2F006B2FD1 /* HACNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACNetwork.m; sourceTree = "<group>"; };
+		FA51CBD61E2C68040010E746 /* HACFps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HACFps.h; sourceTree = "<group>"; };
+		FA51CBD71E2C68040010E746 /* HACFps.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACFps.m; sourceTree = "<group>"; };
+		FA51CBDA1E2C6DC20010E746 /* HACWeakObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HACWeakObject.h; sourceTree = "<group>"; };
+		FA51CBDB1E2C6DC20010E746 /* HACWeakObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACWeakObject.m; sourceTree = "<group>"; };
 		FB362E8DBE566CD58ABD4124535F2081 /* Specta.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Specta.h; path = Specta/Specta/Specta.h; sourceTree = "<group>"; };
 		FB93C123AC6F580DF978D60A8191F679 /* SpectaDSL.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SpectaDSL.h; path = Specta/Specta/SpectaDSL.h; sourceTree = "<group>"; };
 		FBA78AD493C15517AB45ED930E51A1E0 /* EXPMatchers+raise.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+raise.m"; path = "Expecta/Matchers/EXPMatchers+raise.m"; sourceTree = "<group>"; };
@@ -791,6 +799,7 @@
 		B422B7A21B3BC174679D6B4AB9FA2E66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				FA51CBD51E2C67EC0010E746 /* FPS */,
 				FA267E8E1E28CBBF006B2FD1 /* Network */,
 				FA267E5D1E288015006B2FD1 /* Battery */,
 				730B556C0B13E04506A9E9B789AF7784 /* CPU */,
@@ -934,6 +943,8 @@
 				471FFCA82ED8AEDCD2B58102A811E4D6 /* HACHelp.h */,
 				6720B94D6EC276CDA8FBBEE4286887A0 /* HACObject.h */,
 				1AA524C922CBA2F755876718F029C161 /* HACObject.m */,
+				FA51CBDA1E2C6DC20010E746 /* HACWeakObject.h */,
+				FA51CBDB1E2C6DC20010E746 /* HACWeakObject.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -960,6 +971,15 @@
 				D78B27D71E2B67C60005EEC1 /* HACNetworkFlow.m */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		FA51CBD51E2C67EC0010E746 /* FPS */ = {
+			isa = PBXGroup;
+			children = (
+				FA51CBD61E2C68040010E746 /* HACFps.h */,
+				FA51CBD71E2C68040010E746 /* HACFps.m */,
+			);
+			path = FPS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1073,6 +1093,7 @@
 				FA267E951E28CC2F006B2FD1 /* HACNetwork.h in Headers */,
 				6DAC12354219ABFDD843B2B1FA563A69 /* AMUtils.h in Headers */,
 				83B66F84B5E4402E59D2D2872E3354AE /* HACDeviceData.h in Headers */,
+				FA51CBD81E2C68040010E746 /* HACFps.h in Headers */,
 				33A2D1482B2F2A3BF76B1135621C967B /* HACHelp.h in Headers */,
 				ED916EE5D1804CCF5AF09BB7ADAECD99 /* HACMonitor-umbrella.h in Headers */,
 				D78B27D81E2B67C60005EEC1 /* HACNetworkFlow.h in Headers */,
@@ -1084,6 +1105,7 @@
 				2C43A7D3759ABED808F5F65E1AFE8A9E /* HACRam.h in Headers */,
 				FA267E641E28804D006B2FD1 /* HACBattery.h in Headers */,
 				FA267E601E28803E006B2FD1 /* HACBatteryInfo.h in Headers */,
+				FA51CBDC1E2C6DC20010E746 /* HACWeakObject.h in Headers */,
 				16D742D6C2E336B07BB70FBBE139ECBF /* HACRamInfo.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1286,9 +1308,11 @@
 				FA267E651E28804D006B2FD1 /* HACBattery.m in Sources */,
 				1282806CE3FAC0E2D062BCB9B1D7FED0 /* HACMonitor-dummy.m in Sources */,
 				9F93C7E5B0219D41EE9667E851C3F666 /* HACObject.m in Sources */,
+				FA51CBDD1E2C6DC20010E746 /* HACWeakObject.m in Sources */,
 				FA267E921E28CBDE006B2FD1 /* HACNetworkInfo.m in Sources */,
 				FA267E611E28803E006B2FD1 /* HACBatteryInfo.m in Sources */,
 				31650A16A2620673935C04E6A4782440 /* HACpu.m in Sources */,
+				FA51CBD91E2C68040010E746 /* HACFps.m in Sources */,
 				A720ACE23BF5022BB098E7F6667F73D1 /* HACpuInfo.m in Sources */,
 				D78B27D91E2B67C60005EEC1 /* HACNetworkFlow.m in Sources */,
 				34B6F32A5E26DE9096295AB912DA0809 /* HACpuLoad.m in Sources */,

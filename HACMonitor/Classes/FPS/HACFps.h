@@ -6,8 +6,13 @@
 //
 //
 
-#import <HACMonitor/HACMonitor.h>
+#import "HACObject.h"
+
+typedef void(^HACFpsMonitorBlock)(CGFloat);
 
 @interface HACFps : HACObject
 
+- (BOOL)startFpsMonitorBlock:(HACFpsMonitorBlock) block ;
+
+- (void)stop ;
 @end

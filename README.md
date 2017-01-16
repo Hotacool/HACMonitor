@@ -5,19 +5,10 @@
 [![License](https://img.shields.io/cocoapods/l/HACMonitor.svg?style=flat)](http://cocoapods.org/pods/HACMonitor)
 [![Platform](https://img.shields.io/cocoapods/p/HACMonitor.svg?style=flat)](http://cocoapods.org/pods/HACMonitor)
 
-## Example
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
-## Requirements
-
 ## Installation
 
-HACMonitor is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
 ```ruby
-pod "HACMonitor"
+pod 'HACMonitor' ,:git=>"https://github.com/Hotacool/HACMonitor", :tag => '0.1.0'
 ```
 
 ## Author

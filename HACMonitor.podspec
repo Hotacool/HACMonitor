@@ -26,7 +26,7 @@ TODO: Add long description of the pod here.
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'sicong.qian' => 'shisosen@163.com' }
   s.source           = { :git => 'https://github.com/Hotacool/HACMonitor.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.social_media_url = 'http://www.jianshu.com/u/24ef34aa7b41'
 
   s.ios.deployment_target = '8.0'
 
