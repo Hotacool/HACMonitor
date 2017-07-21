@@ -12,6 +12,7 @@
 #import <HACMonitor/HACBattery.h>
 #import <HACMonitor/HACNetwork.h>
 #import <HACMonitor/HACFps.h>
+#import <HACMonitor/HACPerformanceMonitor.h>
 
 @interface HACViewController ()
 @property (nonatomic, strong) UIButton *btn;
@@ -87,10 +88,11 @@
 //    
 //    NSTimer *timer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(doSomething) userInfo:nil repeats:YES];
 //    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
-    fps = [[HACFps alloc] init];
-    [fps startFpsMonitorBlock:^(CGFloat f) {
-        NSLog(@"fps: %f", f);
-    }];
+//    fps = [[HACFps alloc] init];
+//    [fps startFpsMonitorBlock:^(CGFloat f) {
+//        NSLog(@"fps: %f", f);
+//    }];
+    [[HACPerformanceMonitor sharedInstance] start];
 }
 
 @end

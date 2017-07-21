@@ -1,20 +1,21 @@
 {
   "name": "HACMonitor",
   "version": "0.1.0",
-  "summary": "A short description of HACMonitor.",
+  "summary": "A simple lib to monitor App cpu, memory.",
   "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/<GITHUB_USERNAME>/HACMonitor",
+  "homepage": "https://github.com/Hotacool/HACMonitor",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
   },
   "authors": {
-    "sicong.qian": "hotacool777@gmail.com"
+    "sicong.qian": "shisosen@163.com"
   },
   "source": {
-    "git": "https://github.com/<GITHUB_USERNAME>/HACMonitor.git",
+    "git": "https://github.com/Hotacool/HACMonitor.git",
     "tag": "0.1.0"
   },
+  "social_media_url": "http://www.jianshu.com/u/24ef34aa7b41",
   "platforms": {
     "ios": "8.0"
   },
