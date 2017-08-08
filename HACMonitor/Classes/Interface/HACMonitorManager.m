@@ -84,8 +84,8 @@
     if (![self.netMonitor isActive]) {
         __weak typeof(self) weakSelf = self;
         [self.netMonitor startNetMonitorBlock:^(HACNetworkFlow *networkFlow) {
-            float download = networkFlow.inBytes/1024/1024;
-            float upload = networkFlow.outBytes/1024/1024;
+            float download = (float)networkFlow.inBytes/1024/1024;
+            float upload = (float)networkFlow.outBytes/1024/1024;
             __strong typeof(weakSelf) strongSelf = weakSelf;
             dispatch_async(dispatch_get_main_queue(), ^{
                 [strongSelf->_hoverButton refreshButtonAtIndex:2 withBlock:^(UIButton *button) {
