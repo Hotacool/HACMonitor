@@ -29,6 +29,10 @@
     return self;
 }
 
+- (BOOL)isActive {
+    return (displayLink!=nil);
+}
+
 - (BOOL)startFpsMonitorBlock:(HACFpsMonitorBlock) block {
     if (HACObjectIsNull(block)) {
         return NO;

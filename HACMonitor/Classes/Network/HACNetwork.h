@@ -17,4 +17,11 @@ extern NSString *const kHACNetworkExternalIPAddressUpdated;
 - (HACNetworkInfo*)getNetworkInfo;
 
 + (HACNetworkFlow*)getNetworkFlow ;
+
+// 持续监控
+- (BOOL)isActive ;
+
+- (BOOL)startNetMonitorBlock:(void(^)(HACNetworkFlow *))block ;
+
+- (void)stop ;
 @end

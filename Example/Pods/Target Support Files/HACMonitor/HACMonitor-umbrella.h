@@ -27,6 +27,7 @@
 #import "HACHelp.h"
 #import "HACObject.h"
 #import "HACWeakObject.h"
+#import "HACMonitorManager.h"
 
 FOUNDATION_EXPORT double HACMonitorVersionNumber;
 FOUNDATION_EXPORT const unsigned char HACMonitorVersionString[];

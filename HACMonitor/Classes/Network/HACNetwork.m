@@ -9,6 +9,7 @@
 #import "HACNetwork.h"
 #import "AMUtils.h"
 #import "HACHelp.h"
+#import "HACWeakObject.h"
 
 #import <SystemConfiguration/SystemConfiguration.h>
 #import <CoreTelephony/CTTelephonyNetworkInfo.h>
@@ -37,9 +38,16 @@ NSString *const kHACNetworkExternalIPAddressUpdated = @"kHACNetworkExternalIPAdd
     SCNetworkReachabilityRef reachability;
     NSString *currentInterface;
     CTTelephonyNetworkInfo *telephonyNetworkInfo;
+    
+    NSTimer *timer;
+    void(^monitorBlock)(HACNetworkFlow *);
+    BOOL isFirst;
+    HACNetworkFlow *firstFlow;
 }
 
 - (void)dealloc {
+    [self stop];
+    
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     if (reachability) {
         CFRelease(reachability);
@@ -48,6 +56,7 @@ NSString *const kHACNetworkExternalIPAddressUpdated = @"kHACNetworkExternalIPAdd
 
 - (instancetype)init {
     if (self = [super init]) {
+        isFirst = YES;
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(currentRadioTechnologyChangedCB) name:CTRadioAccessTechnologyDidChangeNotification object:nil];
     }
     return self;
@@ -136,6 +145,45 @@ NSString *const kHACNetworkExternalIPAddressUpdated = @"kHACNetworkExternalIPAdd
     networkFlow.lastChangeTime = time.tv_sec;
     
     return networkFlow;
+}
+
+// 持续监控
+- (BOOL)isActive {
+    return (timer != nil);
+}
+
+- (BOOL)startNetMonitorBlock:(void(^)(HACNetworkFlow *))block {
+    if (block) {
+        monitorBlock = [block copy];
+        timer = [NSTimer scheduledTimerWithTimeInterval:1 target:[HACWeakObject weakObjectWithTarget:self] selector:@selector(timerFire) userInfo:nil repeats:YES];
+    }
+    return NO;
+}
+
+- (void)stop {
+    [timer invalidate];
+    timer = nil;
+    isFirst = YES;
+}
+
+- (void)timerFire {
+    HACNetworkFlow *networkFlow = [HACNetwork getNetworkFlow];
+    if (isFirst) {
+        //第一次的历史数据不参与统计
+        isFirst = NO;
+        firstFlow = networkFlow;
+    } else {
+        networkFlow.allFlow -= firstFlow.allFlow;
+        networkFlow.inBytes -= firstFlow.inBytes;
+        networkFlow.outBytes -= firstFlow.outBytes;
+        networkFlow.wifiFlow -= firstFlow.wifiFlow;
+        networkFlow.wifiInBytes -= firstFlow.wifiInBytes;
+        networkFlow.wifiOutBytes -= firstFlow.wifiOutBytes;
+        networkFlow.wwanFlow -= firstFlow.wwanFlow;
+        networkFlow.wwanInBytes -= firstFlow.wwanInBytes;
+        networkFlow.wwanOutBytes -= firstFlow.wwanOutBytes;
+        monitorBlock(networkFlow);
+    }
 }
 
 #pragma mark - private

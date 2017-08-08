@@ -8,7 +8,9 @@
 
 #import "HACAppDelegate.h"
 
-@implementation HACAppDelegate
+@implementation HACAppDelegate {
+    
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

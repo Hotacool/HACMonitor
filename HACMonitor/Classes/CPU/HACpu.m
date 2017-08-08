@@ -10,6 +10,7 @@
 #import "HACHelp.h"
 #import "AMUtils.h"
 #import "HACDeviceData.h"
+#import "HACWeakObject.h"
 
 #import <sys/sysctl.h>
 #import <mach/mach_host.h>
@@ -27,9 +28,15 @@
     processor_cpu_load_info_t priorCpuTicks;
     mach_port_t host;
     processor_set_name_port_t processorSet;
+    
+    NSTimer *timer;
+    void(^monitorBlock)(CGFloat);
 }
 
 - (void)dealloc {
+    [timer invalidate];
+    timer = nil;
+    
     free(priorCpuTicks);
 }
 
@@ -275,6 +282,29 @@
     vm_deallocate(mach_task_self(), (vm_address_t)processorTickInfo, (vm_size_t)(processorMsgCount * sizeof(*processorTickInfo)));
     
     return loadArr;
+}
+
+// 持续监控
+- (BOOL)isActive {
+    return (timer != nil);
+}
+
+- (BOOL)startCpuMonitorBlock:(void(^)(CGFloat))block {
+    if (block) {
+        monitorBlock = [block copy];
+        timer = [NSTimer scheduledTimerWithTimeInterval:1 target:[HACWeakObject weakObjectWithTarget:self] selector:@selector(timerFire) userInfo:nil repeats:YES];
+    }
+    return NO;
+}
+
+- (void)stop {
+    [timer invalidate];
+    timer = nil;
+}
+
+- (void)timerFire {
+    CGFloat cpu = [HACpu getCpuUsageForTaskSelf];
+    monitorBlock(cpu);
 }
 
 #pragma mark - private

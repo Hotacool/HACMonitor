@@ -33,4 +33,10 @@
  */
 - (NSArray<HACpuLoad*>*)getCpuUsageForAllProcessors ;
 
+// 持续监控
+- (BOOL)isActive ;
+
+- (BOOL)startCpuMonitorBlock:(void(^)(CGFloat))block ;
+
+- (void)stop ;
 @end

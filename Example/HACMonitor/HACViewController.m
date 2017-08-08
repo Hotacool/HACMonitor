@@ -13,6 +13,7 @@
 #import <HACMonitor/HACNetwork.h>
 #import <HACMonitor/HACFps.h>
 #import <HACMonitor/HACPerformanceMonitor.h>
+#import "HACMonitorManager.h"
 
 @interface HACViewController ()
 @property (nonatomic, strong) UIButton *btn;
@@ -92,7 +93,14 @@
 //    [fps startFpsMonitorBlock:^(CGFloat f) {
 //        NSLog(@"fps: %f", f);
 //    }];
-    [[HACPerformanceMonitor sharedInstance] start];
+//    [[HACPerformanceMonitor sharedInstance] start];
+    static Boolean isShow = false;
+    if (!isShow) {
+        [[HACMonitorManager shareInstance] showHoverButton];
+    } else {
+        [[HACMonitorManager shareInstance] dismissHoverButton];
+    }
+        isShow = !isShow;
 }
 
 @end

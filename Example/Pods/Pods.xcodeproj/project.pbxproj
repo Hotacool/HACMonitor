@@ -26,6 +26,12 @@
 		5D215559F55B20392CA82C6C2B1A1E9C /* HACBatteryInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = E6B2805908A18D3E000FB48A71C800D2 /* HACBatteryInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5F66399881E3F8469AFC19D02FDB1E26 /* HACWeakObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 928506A19DDD4AB199DC2878362DC383 /* HACWeakObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6CEEB226FA91DDA52D794C10A1248BE8 /* HACNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 80015A844E61AAAD16699A286A485EEF /* HACNetwork.m */; };
+		6D6E26C41F383DFE0003F6A5 /* HACHoverButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D6E26C21F383DFE0003F6A5 /* HACHoverButton.h */; };
+		6D6E26C51F383DFE0003F6A5 /* HACHoverButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D6E26C31F383DFE0003F6A5 /* HACHoverButton.m */; };
+		6D6E26C81F384CAB0003F6A5 /* UIImage+WM.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D6E26C61F384CAA0003F6A5 /* UIImage+WM.m */; };
+		6D6E26C91F384CAB0003F6A5 /* UIImage+WM.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D6E26C71F384CAA0003F6A5 /* UIImage+WM.h */; };
+		6D6E26CC1F384F830003F6A5 /* HACMonitorManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D6E26CA1F384F830003F6A5 /* HACMonitorManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D6E26CD1F384F830003F6A5 /* HACMonitorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D6E26CB1F384F830003F6A5 /* HACMonitorManager.m */; };
 		743154FC14DDF862C3D54B6EC0F5C3C9 /* HACWeakObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B87F2F4CF666551F28CB029307907EAF /* HACWeakObject.m */; };
 		76090BB918221A0AC5B3755403A939CC /* HACRamInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 45F3BA64AF021E53AA87104E09880D00 /* HACRamInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7612E2697B8EF5430061C7D5016C40C3 /* HACpuInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C28F8A443ADC0512D45B6DD583A59E /* HACpuInfo.m */; };
@@ -65,7 +71,7 @@
 		160A71910490CF4DCC5BFAF1869EAFD0 /* Pods-HACMonitor_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-HACMonitor_Example-frameworks.sh"; sourceTree = "<group>"; };
 		1BCE627C1D95350636B6BF70397D3C2E /* HACFps.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HACFps.m; sourceTree = "<group>"; };
 		1D4A6F865B936B4EC941C318C86AC93F /* HACPerformanceMonitor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HACPerformanceMonitor.h; sourceTree = "<group>"; };
-		1E818CD9FEF6A7D368F48BFA398D7896 /* Pods-HACMonitor_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-HACMonitor_Example.modulemap"; sourceTree = "<group>"; };
+		1E818CD9FEF6A7D368F48BFA398D7896 /* Pods-HACMonitor_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-HACMonitor_Example.modulemap"; sourceTree = "<group>"; };
 		32EBA41A7C6585083F91979A498060FA /* HACRam.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HACRam.m; sourceTree = "<group>"; };
 		3396FA2A45ADC8B31421121DD24C4B9A /* HACMonitor-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HACMonitor-prefix.pch"; sourceTree = "<group>"; };
 		345186368147560053D739449E86B393 /* HACRamInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HACRamInfo.m; sourceTree = "<group>"; };
@@ -81,6 +87,12 @@
 		65C28F8A443ADC0512D45B6DD583A59E /* HACpuInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HACpuInfo.m; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		698A341A8034D48D2F3BEC7A74282E0D /* HACDeviceData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HACDeviceData.h; sourceTree = "<group>"; };
+		6D6E26C21F383DFE0003F6A5 /* HACHoverButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HACHoverButton.h; sourceTree = "<group>"; };
+		6D6E26C31F383DFE0003F6A5 /* HACHoverButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HACHoverButton.m; sourceTree = "<group>"; };
+		6D6E26C61F384CAA0003F6A5 /* UIImage+WM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WM.m"; sourceTree = "<group>"; };
+		6D6E26C71F384CAA0003F6A5 /* UIImage+WM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WM.h"; sourceTree = "<group>"; };
+		6D6E26CA1F384F830003F6A5 /* HACMonitorManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HACMonitorManager.h; sourceTree = "<group>"; };
+		6D6E26CB1F384F830003F6A5 /* HACMonitorManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HACMonitorManager.m; sourceTree = "<group>"; };
 		70386AA691F699630C06339C3665C083 /* HACMonitor.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HACMonitor.xcconfig; sourceTree = "<group>"; };
 		73B1C43B6BAB44B642996E5DB3EABC8B /* Pods-HACMonitor_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HACMonitor_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		7673C5C4D7DD65419EDD2D0FA8EBF06D /* HACpuLoad.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HACpuLoad.h; sourceTree = "<group>"; };
@@ -89,19 +101,19 @@
 		824EDF34B169A9FD800A71E90F35846B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90BC2A441945CC87E4756A5ADBA3144E /* HACpu.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HACpu.m; sourceTree = "<group>"; };
 		928506A19DDD4AB199DC2878362DC383 /* HACWeakObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HACWeakObject.h; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		93D0E2150DE4FBE7BCFD049E67F2CAA3 /* HACpuInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HACpuInfo.h; sourceTree = "<group>"; };
 		946CF91D205149FEFA1448A973F0DEF6 /* HACBatteryInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HACBatteryInfo.m; sourceTree = "<group>"; };
 		96BA434A204BAA8BDE4A4392E7B97749 /* HACObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HACObject.m; sourceTree = "<group>"; };
 		9AEB0FB370C0211A2F5533145D2535B5 /* Pods-HACMonitor_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HACMonitor_Example.release.xcconfig"; sourceTree = "<group>"; };
 		9C244B9CDDE968618D49810BA2DE18DB /* HACRam.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HACRam.h; sourceTree = "<group>"; };
-		9F87E965E8DED2EE1798789F4ADBB3CA /* HACMonitor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = HACMonitor.framework; path = HACMonitor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F87E965E8DED2EE1798789F4ADBB3CA /* HACMonitor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HACMonitor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FFCF413B1E8633878CD82E85C39BC04 /* Pods-HACMonitor_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HACMonitor_Example-dummy.m"; sourceTree = "<group>"; };
-		B2A3A525FCD5620597C20B005BF3753A /* HACMonitor.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = HACMonitor.modulemap; sourceTree = "<group>"; };
+		B2A3A525FCD5620597C20B005BF3753A /* HACMonitor.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = HACMonitor.modulemap; sourceTree = "<group>"; };
 		B74D6F4A4A450474E3F49186E4C966CE /* HACNetworkInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HACNetworkInfo.m; sourceTree = "<group>"; };
 		B87F2F4CF666551F28CB029307907EAF /* HACWeakObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HACWeakObject.m; sourceTree = "<group>"; };
 		BB5FDA10A79E0AE8FCA8D140E555A018 /* HACNetworkFlow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HACNetworkFlow.m; sourceTree = "<group>"; };
-		BDEADAAD556F6837DD4E77EBFACF46D1 /* Pods_HACMonitor_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_HACMonitor_Example.framework; path = "Pods-HACMonitor_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDEADAAD556F6837DD4E77EBFACF46D1 /* Pods_HACMonitor_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HACMonitor_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB73307A29552C8AA4D469DAC5647ADA /* HACpuLoad.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HACpuLoad.m; sourceTree = "<group>"; };
 		D8F4E4E385DC0AEA52A9BB8BF023C31E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E25E1E47D0EBDE09240A83901D513AB7 /* HACNetworkInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HACNetworkInfo.h; sourceTree = "<group>"; };
@@ -164,7 +176,6 @@
 				1D4A6F865B936B4EC941C318C86AC93F /* HACPerformanceMonitor.h */,
 				4657605DB3CBBE868C10CB295E58BAB2 /* HACPerformanceMonitor.m */,
 			);
-			name = Performance;
 			path = Performance;
 			sourceTree = "<group>";
 		};
@@ -174,6 +185,17 @@
 				038104E3568E0FF0CD196FA88A235592 /* HACMonitor */,
 			);
 			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		6D6E26C11F383C450003F6A5 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				6D6E26C21F383DFE0003F6A5 /* HACHoverButton.h */,
+				6D6E26C31F383DFE0003F6A5 /* HACHoverButton.m */,
+				6D6E26CA1F384F830003F6A5 /* HACMonitorManager.h */,
+				6D6E26CB1F384F830003F6A5 /* HACMonitorManager.m */,
+			);
+			path = Interface;
 			sourceTree = "<group>";
 		};
 		706026554B2EA7B974F643EC8835F9F7 /* CPU */ = {
@@ -186,7 +208,6 @@
 				7673C5C4D7DD65419EDD2D0FA8EBF06D /* HACpuLoad.h */,
 				CB73307A29552C8AA4D469DAC5647ADA /* HACpuLoad.m */,
 			);
-			name = CPU;
 			path = CPU;
 			sourceTree = "<group>";
 		};
@@ -207,13 +228,14 @@
 				EF58860DACB8B499BB1B72A9061E8B69 /* HACFps.h */,
 				1BCE627C1D95350636B6BF70397D3C2E /* HACFps.m */,
 			);
-			name = FPS;
 			path = FPS;
 			sourceTree = "<group>";
 		};
 		88278C433EAF524B56E0569C44C48D0C /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				6D6E26C71F384CAA0003F6A5 /* UIImage+WM.h */,
+				6D6E26C61F384CAA0003F6A5 /* UIImage+WM.m */,
 				57F747E5510D8FFD87CE42A854DA8A38 /* AMUtils.h */,
 				0D1388A4187AFF56736C21D5EC9C6315 /* AMUtils.m */,
 				698A341A8034D48D2F3BEC7A74282E0D /* HACDeviceData.h */,
@@ -224,7 +246,6 @@
 				928506A19DDD4AB199DC2878362DC383 /* HACWeakObject.h */,
 				B87F2F4CF666551F28CB029307907EAF /* HACWeakObject.m */,
 			);
-			name = Utils;
 			path = Utils;
 			sourceTree = "<group>";
 		};
@@ -238,7 +259,6 @@
 				E25E1E47D0EBDE09240A83901D513AB7 /* HACNetworkInfo.h */,
 				B74D6F4A4A450474E3F49186E4C966CE /* HACNetworkInfo.m */,
 			);
-			name = Network;
 			path = Network;
 			sourceTree = "<group>";
 		};
@@ -254,6 +274,7 @@
 		B0640A8FB76E2D31ABE3F0DB6A0651DB /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				6D6E26C11F383C450003F6A5 /* Interface */,
 				D19BACAAAEF0007B77602CA943C8EAAB /* Battery */,
 				706026554B2EA7B974F643EC8835F9F7 /* CPU */,
 				7F0293CCB9CF912F8D51F2114698D147 /* FPS */,
@@ -262,7 +283,6 @@
 				26F591BD8031B5BA94C1C08617AFBC37 /* Performance */,
 				88278C433EAF524B56E0569C44C48D0C /* Utils */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -271,7 +291,6 @@
 			children = (
 				B0640A8FB76E2D31ABE3F0DB6A0651DB /* Classes */,
 			);
-			name = HACMonitor;
 			path = HACMonitor;
 			sourceTree = "<group>";
 		};
@@ -291,7 +310,6 @@
 				E6B2805908A18D3E000FB48A71C800D2 /* HACBatteryInfo.h */,
 				946CF91D205149FEFA1448A973F0DEF6 /* HACBatteryInfo.m */,
 			);
-			name = Battery;
 			path = Battery;
 			sourceTree = "<group>";
 		};
@@ -311,7 +329,6 @@
 				45F3BA64AF021E53AA87104E09880D00 /* HACRamInfo.h */,
 				345186368147560053D739449E86B393 /* HACRamInfo.m */,
 			);
-			name = Memory;
 			path = Memory;
 			sourceTree = "<group>";
 		};
@@ -348,6 +365,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D6E26CC1F384F830003F6A5 /* HACMonitorManager.h in Headers */,
 				A852286253D72C952DCA9041850D0C00 /* AMUtils.h in Headers */,
 				BFA56CF5C0F73D0EEB67DD67A324DC26 /* HACBattery.h in Headers */,
 				5D215559F55B20392CA82C6C2B1A1E9C /* HACBatteryInfo.h in Headers */,
@@ -358,9 +376,11 @@
 				31BB975C108E9E633965A5FEBEDE7333 /* HACNetwork.h in Headers */,
 				E8D45715B7BD700F4290E8B6726E051A /* HACNetworkFlow.h in Headers */,
 				183E2F55D73E32DDB17B52FDB8E3ED51 /* HACNetworkInfo.h in Headers */,
+				6D6E26C41F383DFE0003F6A5 /* HACHoverButton.h in Headers */,
 				8EC61A06605EA7ACCFD52638B007A619 /* HACObject.h in Headers */,
 				B0AB7A515980AC5C1CF83B08500EA641 /* HACPerformanceMonitor.h in Headers */,
 				AA9AD0C41FAF5961C779915662EA4665 /* HACpu.h in Headers */,
+				6D6E26C91F384CAB0003F6A5 /* UIImage+WM.h in Headers */,
 				AB6263D91390065304A630DFDC6E6767 /* HACpuInfo.h in Headers */,
 				F71704A48E11B68A16DB8FE57A11C6F3 /* HACpuLoad.h in Headers */,
 				2982650EE6D05F6DEC8D228F4F5C6A4D /* HACRam.h in Headers */,
@@ -448,8 +468,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF06291B742EB2E2FE0423BFB5441E92 /* AMUtils.m in Sources */,
+				6D6E26C81F384CAB0003F6A5 /* UIImage+WM.m in Sources */,
 				0420F38537F3BFF9FB711F9855F2873F /* HACBattery.m in Sources */,
 				BDFE76F30093CA9F71DA378AA2E39ECE /* HACBatteryInfo.m in Sources */,
+				6D6E26C51F383DFE0003F6A5 /* HACHoverButton.m in Sources */,
 				3C017EE8807FBDE16073262548B3DDB4 /* HACDeviceData.m in Sources */,
 				7E7266A8CE97A829EEBC4E7D5F8AA905 /* HACFps.m in Sources */,
 				3AB43FC3FE053ADF0549F31F1A0C45ED /* HACMonitor-dummy.m in Sources */,
@@ -462,6 +484,7 @@
 				7612E2697B8EF5430061C7D5016C40C3 /* HACpuInfo.m in Sources */,
 				2A39D2C42ED877C6E5F914FB7DABD9E4 /* HACpuLoad.m in Sources */,
 				C40CC4B8FFC68F616A63993CE1345214 /* HACRam.m in Sources */,
+				6D6E26CD1F384F830003F6A5 /* HACMonitorManager.m in Sources */,
 				37F32D7DF116ADB41AFF2266700D980D /* HACRamInfo.m in Sources */,
 				743154FC14DDF862C3D54B6EC0F5C3C9 /* HACWeakObject.m in Sources */,
 			);

@@ -9,11 +9,19 @@
 #import "HACRam.h"
 #import "HACHelp.h"
 #import "HACDeviceData.h"
+#import "HACWeakObject.h"
 
 #import <mach/mach.h>
 #import <mach/mach_host.h>
 
 @implementation HACRam {
+    NSTimer *timer;
+    void(^monitorBlock)(CGFloat);
+}
+
+- (void)dealloc {
+    [timer invalidate];
+    timer = nil;
 }
 
 + (HACRamInfo *)getRamInfo {
@@ -66,14 +74,35 @@
     return taskInfo.resident_size;
 }
 
+// 持续监控
+- (BOOL)isActive {
+    return (timer != nil);
+}
+
+- (BOOL)startRamMonitorBlock:(void(^)(CGFloat))block {
+    if (block) {
+        monitorBlock = [block copy];
+        timer = [NSTimer scheduledTimerWithTimeInterval:1 target:[HACWeakObject weakObjectWithTarget:self] selector:@selector(timerFire) userInfo:nil repeats:YES];
+    }
+    return NO;
+}
+
+- (void)stop {
+    [timer invalidate];
+    timer = nil;
+}
+
+- (void)timerFire {
+    CGFloat ram = [HACRam getUsedMemory] / 1024.0 / 1024.0;
+    monitorBlock(ram);
+}
+
 #pragma mark - private
-+ (NSUInteger)getRAMTotal
-{
++ (NSUInteger)getRAMTotal {
     return (NSUInteger)[NSProcessInfo processInfo].physicalMemory;
 }
 
-+ (NSString*)getRAMType
-{
++ (NSString*)getRAMType {
     HACDeviceData *hardcodedData = [HACDeviceData sharedDeviceData];
     return (NSString*) [hardcodedData getRAMType];
 }

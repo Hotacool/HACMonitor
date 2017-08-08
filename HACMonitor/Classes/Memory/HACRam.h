@@ -24,4 +24,11 @@
  *  @return ram used, byte
  */
 + (CGFloat)getUsedMemory ;
+
+// 持续监控
+- (BOOL)isActive ;
+
+- (BOOL)startRamMonitorBlock:(void(^)(CGFloat))block ;
+
+- (void)stop ;
 @end

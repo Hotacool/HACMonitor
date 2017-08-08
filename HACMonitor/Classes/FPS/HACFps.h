@@ -12,6 +12,8 @@ typedef void(^HACFpsMonitorBlock)(CGFloat);
 
 @interface HACFps : HACObject
 
+- (BOOL)isActive ;
+
 - (BOOL)startFpsMonitorBlock:(HACFpsMonitorBlock) block ;
 
 - (void)stop ;
