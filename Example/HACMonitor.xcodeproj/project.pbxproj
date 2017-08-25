@@ -468,7 +468,7 @@
 				GCC_PREFIX_HEADER = "HACMonitor/HACMonitor-Prefix.pch";
 				INFOPLIST_FILE = "HACMonitor/HACMonitor-Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hotacool.xxx;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -486,7 +486,7 @@
 				GCC_PREFIX_HEADER = "HACMonitor/HACMonitor-Prefix.pch";
 				INFOPLIST_FILE = "HACMonitor/HACMonitor-Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hotacool.xxx;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
