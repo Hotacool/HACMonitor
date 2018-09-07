@@ -57,6 +57,10 @@ NSString *const kHACNetworkExternalIPAddressUpdated = @"kHACNetworkExternalIPAdd
 - (instancetype)init {
     if (self = [super init]) {
         isFirst = YES;
+        //注:telephonyNetworkInfo初始化有延迟，立即调用返回nil
+        if (HACObjectIsNull(telephonyNetworkInfo)) {
+            telephonyNetworkInfo = [CTTelephonyNetworkInfo new];
+        }
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(currentRadioTechnologyChangedCB) name:CTRadioAccessTechnologyDidChangeNotification object:nil];
     }
     return self;
@@ -376,9 +380,9 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     else if ([currentInterface isEqualToString:kInterfaceWWAN])
     {
         static NSString *interfaceFormat = @"Cellular (%@)";
-        if (HACObjectIsNull(telephonyNetworkInfo)) {
-            telephonyNetworkInfo = [CTTelephonyNetworkInfo new];
-        }
+//        if (HACObjectIsNull(telephonyNetworkInfo)) {
+//            telephonyNetworkInfo = [CTTelephonyNetworkInfo new];
+//        }
         NSString *currentRadioTechnology = [telephonyNetworkInfo currentRadioAccessTechnology];
         
         if ([currentRadioTechnology isEqualToString:CTRadioAccessTechnologyLTE])            return [NSString stringWithFormat:interfaceFormat, @"LTE"];
